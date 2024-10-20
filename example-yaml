@@ -1,0 +1,23 @@
+name: Example Workflow
+
+# When to run the workflow (triggered when code is pushed to the 'main' branch)
+on:
+  push:
+    branches:
+      - main
+
+# The jobs that will run in the workflow
+jobs:
+  say-hello:
+    # Runner type (we're using Ubuntu, a type of Linux)
+    runs-on: ubuntu-latest
+    
+    # Steps inside the job
+    steps:
+      # Uses GitHub's checkout action to get a copy of your code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Runs a shell command to print "Hello, World!"
+      - name: Say Hello
+        run: echo "Hello, World!"
